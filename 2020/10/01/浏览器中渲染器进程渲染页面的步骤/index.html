@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="我们知道渲染器进程的核心任务就是把html、css、js、image渲染成用户可以交互的web页面那么当渲染器进程接受到一个HTML页面时，它会如何渲染这个页面呢 构造DOM树结构首先，渲染器进程的主线程将html进行解析，构造DOM树结构。渲染器主线程中，html首先会经过Tokeniser标记化，将输入的html内容解析成多个标记，然后再根据识别后的标记进行DOM树构造，在DOM树构造过程中会">
+    <meta name="description" content="我们知道渲染器进程的核心任务就是把html、css、js、image渲染成用户可以交互的web页面那么当渲染器进程接受到一个HTML页面时，它会如何渲染这个页面呢 构造DOM数据结构首先，渲染器进程的主线程将html进行解析，构造DOM数据结构。渲染器主线程中，html首先会经过Tokeniser标记化，将输入的html内容解析成多个标记，然后再根据识别后的标记进行DOM树构造，在DOM树构造过程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浏览器中渲染器进程渲染页面的步骤">
 <meta property="og:url" content="http://example.com/2020/10/01/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E6%B8%B2%E6%9F%93%E5%99%A8%E8%BF%9B%E7%A8%8B%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%AD%A5%E9%AA%A4/index.html">
 <meta property="og:site_name" content="郑鉴的个人博客">
-<meta property="og:description" content="我们知道渲染器进程的核心任务就是把html、css、js、image渲染成用户可以交互的web页面那么当渲染器进程接受到一个HTML页面时，它会如何渲染这个页面呢 构造DOM树结构首先，渲染器进程的主线程将html进行解析，构造DOM树结构。渲染器主线程中，html首先会经过Tokeniser标记化，将输入的html内容解析成多个标记，然后再根据识别后的标记进行DOM树构造，在DOM树构造过程中会">
+<meta property="og:description" content="我们知道渲染器进程的核心任务就是把html、css、js、image渲染成用户可以交互的web页面那么当渲染器进程接受到一个HTML页面时，它会如何渲染这个页面呢 构造DOM数据结构首先，渲染器进程的主线程将html进行解析，构造DOM数据结构。渲染器主线程中，html首先会经过Tokeniser标记化，将输入的html内容解析成多个标记，然后再根据识别后的标记进行DOM树构造，在DOM树构造过程">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-01T06:46:58.000Z">
-<meta property="article:modified_time" content="2020-10-05T07:14:30.374Z">
+<meta property="article:modified_time" content="2020-10-05T07:24:02.715Z">
 <meta property="article:author" content="郑鉴">
 <meta name="twitter:card" content="summary">
     
@@ -105,7 +105,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0DOM%E6%A0%91%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">构造DOM树结构</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0DOM%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">构造DOM数据结构</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -145,7 +145,7 @@
 
   <div class="content" itemprop="articleBody">
     <p>我们知道渲染器进程的核心任务就是把html、css、js、image渲染成用户可以交互的web页面<br>那么当渲染器进程接受到一个HTML页面时，它会如何渲染这个页面呢</p>
-<h3 id="构造DOM树结构"><a href="#构造DOM树结构" class="headerlink" title="构造DOM树结构"></a>构造DOM树结构</h3><p>首先，渲染器进程的主线程将html进行解析，构造DOM树结构。<br>渲染器主线程中，html首先会经过Tokeniser标记化，将输入的html内容解析成多个标记，然后再根据识别后的标记进行DOM树构造，在DOM树构造过程中会创建docunment对象，然后以documnet对象为根节点的dom树不断的修改，向其中添加各种元素，像body，p这些；</p>
+<h3 id="构造DOM数据结构"><a href="#构造DOM数据结构" class="headerlink" title="构造DOM数据结构"></a>构造DOM数据结构</h3><p>首先，渲染器进程的主线程将html进行解析，构造DOM数据结构。<br>渲染器主线程中，html首先会经过Tokeniser标记化，将输入的html内容解析成多个标记，然后再根据识别后的标记进行DOM树构造，在DOM树构造过程中会创建docunment对象，然后以documnet对象为根节点的dom树不断的修改，向其中添加各种元素，像body，p这些；</p>
 
   </div>
 </article>
@@ -171,7 +171,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0DOM%E6%A0%91%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">构造DOM树结构</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0DOM%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">构造DOM数据结构</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
